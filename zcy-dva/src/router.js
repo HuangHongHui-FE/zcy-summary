@@ -13,7 +13,6 @@ function RouterConfig({ history }) {
             <App>
               <Switch>
                 <Route path="/film" component={Film} />
-
                 <Redirect from="/" to="/film"></Redirect>
               </Switch>
             </App>

@@ -1,9 +1,11 @@
 import dva from "dva";
-import createLoading from 'dva-loading';
+import createLoading from "dva-loading";
+import onError from "./utils/error";
 
 const app = dva({
   // history:require("history").createBrowserHistory()
   history: require("history").createHashHistory(),
+  onError,
 });
 
 // 2. Plugins
