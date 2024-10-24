@@ -1,0 +1,1 @@
+[dvaDemos](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)](https://github.com/dvajs/dva/tree/master/examples/func-test)](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
