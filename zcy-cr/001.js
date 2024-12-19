@@ -1,4 +1,4 @@
-// 1、有计划检验采购计划完整性校验, 的return
+// 1、promise妙用
 checkAbolishHint = async (rows) => {
   const { dispatch } = this.props;
   const { result = {}, success } = await dispatch({
@@ -9,7 +9,6 @@ checkAbolishHint = async (rows) => {
   });
   if (success) {
     const { isHint, projectName, abolishCount } = result;
-    // isHint，是否需要提示，为 true 时需要
     if (isHint) {
       return new Promise((resolve) => {
         CustomModal({
@@ -30,7 +29,6 @@ checkAbolishHint = async (rows) => {
 
 !(await this.checkAbolishHint(rows));
 
-
 // 2、
 // wrappedComponentRef使用场景：
 // 子组件：被高阶组件包裹，例：子组件表单被Form.create()包裹。
@@ -39,12 +37,16 @@ checkAbolishHint = async (rows) => {
 // 仅属性名ref和wrappedComponentRef不同，其他写法都一样
 
 <HocComponent
-	// 子组件没被高阶组件包裹 用ref
-    ref={(ref) => {
-        this.sonRef = ref;
-    }}
-    // 子组件被高阶组件包裹 用wrappedComponentRef
-    wrappedComponentRef={(ref) => {
-      this.sonRef = ref;
-    }}
-/>
+  // 子组件没被高阶组件包裹 用ref
+  ref={(ref) => {
+    this.sonRef = ref;
+  }}
+  // 子组件被高阶组件包裹 用wrappedComponentRef
+  wrappedComponentRef={(ref) => {
+    this.sonRef = ref;
+  }}
+/>;
+
+// 3、.filter(Boolean)
+const a = true;
+const ls = [a && {}, { b: 111 }, !a && {}].filter(Boolean);
