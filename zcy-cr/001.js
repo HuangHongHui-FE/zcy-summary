@@ -32,3 +32,19 @@ checkAbolishHint = async (rows) => {
 
 
 // 2、
+// wrappedComponentRef使用场景：
+// 子组件：被高阶组件包裹，例：子组件表单被Form.create()包裹。
+// 父组件：当子组件被高阶组件包裹后，父组件想拿到子组件的引用，直接用ref={}属性设置，将获取不到，需用wrappedComponentRef={}属性设置。
+// 写法：
+// 仅属性名ref和wrappedComponentRef不同，其他写法都一样
+
+<HocComponent
+	// 子组件没被高阶组件包裹 用ref
+    ref={(ref) => {
+        this.sonRef = ref;
+    }}
+    // 子组件被高阶组件包裹 用wrappedComponentRef
+    wrappedComponentRef={(ref) => {
+      this.sonRef = ref;
+    }}
+/>
