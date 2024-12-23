@@ -98,3 +98,11 @@ const ls = [a && {}, { b: 111 }, !a && {}].filter(Boolean);
     </div>
   </If>
 </div>;
+
+// 6、Object.assign 用法
+const res = Object.assign({}, { a: 111 }, { b: 222 });
+
+// 7、setState
+this.setState({ anchorId, fileType }, () => {
+  console.log(this.state.anchorId);
+});
