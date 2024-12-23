@@ -63,3 +63,38 @@ const ls = [a && {}, { b: 111 }, !a && {}].filter(Boolean);
 // ci（持续集成脚本相关变更）
 // build（代码构建相关变更：比如修复部署时的构建问题、构建脚本 webpack 或 gulp 相关变更）
 // temp（临时代码：不计入 CHANGELOG，比如必须部署到某种环境才能测试的变更。如测试真机上 transparent title 启动参数是否设置成功）
+
+// 5、If Else包
+<div className="expert-opinion-box">
+  <If condition={index === 0}>
+    {endOpinionStatus ? (
+      advise("结束评审意见", endReviewOpinion)
+    ) : (
+      <If condition={operatePrivilege.modifyOpinion}>
+        {getFieldDecorator("opinion", {
+          initialValue: endReviewOpinion,
+          rules: [{ required, message: "请输入" }],
+        })(textarea)}
+        <Else />
+        {advise("结束评审意见", endReviewOpinion)}
+      </If>
+    )}
+    {adviseOrder.map(({ name, key }) => {
+      return advise(name, item[key]);
+    })}
+  </If>
+  <If condition={index !== 0 && allSubmit}>
+    {advise("结束评审意见", endReviewOpinion)}
+    {adviseOrder.map(({ name, key }) => {
+      return advise(name, item[key]);
+    })}
+  </If>
+  <If condition={index !== 0 && !allSubmit}>
+    <div className="opinion-status">
+      <p style={{ color: endOpinionStatus ? "#2DC12D" : "#FF3100", paddingTop: 15 }}>
+        {endOpinionStatus ? "已提交" : "未提交"}
+      </p>
+      <span style={{ color: "#999" }}>全部组员提交后您需根据组员意见汇总评标结果</span>
+    </div>
+  </If>
+</div>;

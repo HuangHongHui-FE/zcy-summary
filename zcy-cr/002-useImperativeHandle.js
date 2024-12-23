@@ -1,3 +1,4 @@
+import { forwardRef, useRef } from "react";
 // 子组件
 const PDFPreviewSettingPopover = (props, ref) => {
   const [marginTopValue, setMarginTopValue] = useState(false);
