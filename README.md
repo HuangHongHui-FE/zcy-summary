@@ -10,13 +10,17 @@ __todo
 
 5、@zcy/pdf-viewer
 
-6、componentWillReceiveProps
+6、componentWillReceiveProps，getDerivedStateFromProps，
 
 7、import ZcyWebsocket from '@base/pc-zcy-websocket-front';
 
 8、validateFieldsAndScroll，requestAnimationFrame，getBoundingClientRect
 
 9、offsetWidth、offsetHeight
+
+10、react-animate-height 包，
+
+11、import NP from '@zcy/number-precision';
 
 
 
