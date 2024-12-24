@@ -106,3 +106,55 @@ const res = Object.assign({}, { a: 111 }, { b: 222 });
 this.setState({ anchorId, fileType }, () => {
   console.log(this.state.anchorId);
 });
+
+// 8、resize
+window.addEventListener("resize", this.onSizeChange);
+window.removeEventListener("resize", this.onSizeChange);
+
+// 9、blob转文件
+function download(href, filename = "") {
+  const a = document.createElement("a");
+  a.download = filename;
+  a.href = href;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+downloadFile = (url, filename) => {
+  fetch(url, {
+    headers: new Headers({
+      Origin: location.origin,
+    }),
+    mode: "cors",
+  })
+    .then((res) => res.blob())
+    .then((blob) => {
+      const blobUrl = window.URL.createObjectURL(blob);
+      download(blobUrl, filename);
+      window.URL.revokeObjectURL(blobUrl);
+    });
+};
+
+downloadFile('xxx', 'xxxxxxx')
+
+// 10、fileSize
+fileSize(size) {
+  if (!size) {
+    return '';
+  }
+  const sizeKB = size / 1024;
+  if (sizeKB < 1) {
+    return `${size % 1 === 0 ? size : size.toFixed(1)}B`;
+  }
+  const sizeMB = sizeKB / 1024;
+  if (sizeMB < 1) {
+    return `${sizeKB % 1 === 0 ? sizeKB : sizeKB.toFixed(1)}K`;
+  }
+  const sizeGB = sizeMB / 1024;
+  if (sizeGB < 1) {
+    return `${sizeMB % 1 === 0 ? sizeMB : sizeMB.toFixed(1)}M`;
+  }
+  return `${sizeGB % 1 === 0 ? sizeGB : sizeGB.toFixed(1)}G`;
+}
+
