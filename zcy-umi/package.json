@@ -21,8 +21,10 @@
   },
   "dependencies": {
     "@ant-design/pro-layout": "^6.5.0",
+    "qs": "^6.13.1",
     "react": "17.x",
     "react-dom": "17.x",
+    "react-lines-ellipsis": "^0.15.4",
     "umi": "^3.5.43"
   },
   "devDependencies": {
