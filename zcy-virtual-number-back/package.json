@@ -1,0 +1,105 @@
+{
+  "name": "@zcy/zcy-virtual-number-back",
+  "version": "1.0.2",
+  "description": "军采岛端 - 联系人号码 - 隐私号码",
+  "author": "contactPersoncontactPersoncontactPerson",
+  "thumb": "https://sitecdn.zcycdn.com/f2e-assets/a1e7978d-43bf-41ed-a80d-b884aab98a14.png",
+  "type": "component",
+  "sceneType": "middle-back",
+  "functionType": "信息",
+  "tags": "",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "metadata": {
+    "script": "zcy-middle-react-pc-component"
+  },
+  "scripts": {
+    "dev": "zoo dev",
+    "lib": "rm -rf lib && tsc && babel src --out-dir lib --extensions '.ts,.tsx,.js,.jsx' --copy-files",
+    "build": "npm run lib",
+    "preversion": "npm install",
+    "version": "npm run build && git add -A",
+    "postversion": "git push && git push --tags && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.cai-inc.com:f2e-cube/local/react/zcy-virtual-number-back.git"
+  },
+  "maintainers": [
+    {
+      "name": "",
+      "email": ""
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.19.0",
+    "@babel/plugin-proposal-export-default-from": "^7.18.10",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@babel/plugin-transform-destructuring": "^7.9.5",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/plugin-transform-spread": "^7.8.3",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.19.0",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@commitlint/cli": "^17.1.2",
+    "@hot-loader/react-dom": "^16.13.0",
+    "@zcy/commitlint-config-zoo": "0.0.1",
+    "@zcy/doraemon": "^3.2.0",
+    "@zcy/eslint-config-zoo": "^1.0.12",
+    "@zcy/html-base-data": "^1.1.1",
+    "@zcy/stylelint-config-zoo": "0.0.4",
+    "babel-eslint": "^10.0.0",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-dva-hmr": "^0.4.1",
+    "babel-plugin-import": "^1.13.5",
+    "classnames": "^2.2.6",
+    "core-js": "^3.6.5",
+    "cpy-cli": "2.0.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-config-zoo": "~1.0.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-compat": "^2.4.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "event-source-polyfill": "0.0.12",
+    "husky": "^4.3.8",
+    "lint-staged": "^7.3.0",
+    "mockjs": "^1.0.1-beta3",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-hot": "0.0.1",
+    "react-hot-loader": "^4.12.20",
+    "redbox-react": "^1.5.0",
+    "typescript": "^4.8.2"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 5.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "src/**/*.less": [
+      "stylelint --config  ./.stylelintrc --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "dependencies": {
+    "ahooks": "^3.7.10",
+    "copy-to-clipboard": "^3.3.3",
+    "lodash": "^4.17.21"
+  }
+}

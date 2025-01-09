@@ -14,7 +14,7 @@ export default defineConfig({
     { exact: true, path: '/003-qs', component: '@/pages/003-qs' },
     { exact: true, path: '/004-classNames', component: '@/pages/004-classNames' },
     { exact: true, path: '/005-scrollTo', component: '@/pages/005-scrollTo' },
-    // { exact: true, path: '/004-classNames', component: '@/pages/004-classNames' },
+    { exact: true, path: '/006-countDown', component: '@/pages/006-countDown' },
     // { exact: true, path: '/004-classNames', component: '@/pages/004-classNames' },
     // { exact: true, path: '/004-classNames', component: '@/pages/004-classNames' },
     // { exact: true, path: '/004-classNames', component: '@/pages/004-classNames' },
