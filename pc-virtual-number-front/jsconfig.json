@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"],
+      "uni-design-vue": ["./node_modules/@zcy/uni-design-vue"]
+    }
+  }
+}

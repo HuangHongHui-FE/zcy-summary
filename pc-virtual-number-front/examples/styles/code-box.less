@@ -1,0 +1,101 @@
+.code-box {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 16px;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  transition: all 0.2s;
+
+  &-demo {
+    padding: 10px;
+    color: rgba(0, 0, 0, 0.65);
+    border-bottom: 1px solid #eee;
+  }
+
+  &-meta {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 18px 32px;
+    font-size: 14px;
+    border-radius: 0 0 2px 2px;
+    transition: background-color 0.4s;
+
+    &-expand {
+      border-bottom: 1px dashed #eee;
+    }
+
+    > h4 {
+      position: absolute;
+      top: -14px;
+      width: auto;
+      margin-left: -8px;
+      padding: 1px 8px;
+      color: #777;
+      font-size: 14px;
+      background: #fff;
+      border-radius: 2px 2px 0 0;
+    }
+
+    > p {
+      display: inline-block;
+      font-size: 12px;
+    }
+
+    code {
+      margin: 0 1px;
+      padding: 0.2em 0.4em;
+      font-size: 0.9em;
+      background: #ddd;
+      border: 1px solid #eee;
+      border-radius: 3px;
+    }
+  }
+
+  &-expand-icon {
+    position: absolute;
+    right: 16px;
+    bottom: 23px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    cursor: pointer;
+
+    &-hide,
+    &-show {
+      position: absolute;
+      top: 12px;
+      left: 0;
+      max-width: 100%;
+      margin: 0;
+      transition: all 0.4s;
+      user-select: none;
+    }
+
+    &-hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .highlight-wrapper {
+    position: relative;
+    overflow: auto;
+    border-radius: 0 0 2px 2px;
+  }
+
+  pre {
+    width: auto;
+    margin: 0;
+
+    code {
+      display: block;
+      padding: 12px 20px;
+      overflow: auto;
+      background: #fff;
+      border: none;
+    }
+  }
+}

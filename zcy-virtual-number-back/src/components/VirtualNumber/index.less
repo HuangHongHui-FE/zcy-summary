@@ -1,0 +1,35 @@
+@virtual-number-width: 340px;
+
+.virtual {
+  color: #232323;
+  width: @virtual-number-width;
+  line-height: 26px;
+  position: relative;
+
+  &-reload {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+  }
+
+  &-tip {
+    font-family: PingFangSC-Regular;
+    color: #acaaaa;
+    padding-left: 20px;
+    span {
+      color: #ec5e00;
+    }
+  }
+
+  &-change {
+    padding-left: 20px;
+  }
+
+  &-extra {
+    padding-left: 20px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+}
