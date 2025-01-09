@@ -11,6 +11,7 @@ export default defineConfig({
     { path: '/', component: '@/pages/index' },
     { exact: true, path: '/001-context', component: '@/pages/001-context' },
     { exact: true, path: '/002-react-lines-ellipsis', component: '@/pages/002-react-lines-ellipsis' },
+    { exact: true, path: '/003-qs', component: '@/pages/003-qs' },
   ],
   fastRefresh: {},
 });
