@@ -158,3 +158,43 @@ fileSize(size) {
   return `${sizeGB % 1 === 0 ? sizeGB : sizeGB.toFixed(1)}G`;
 }
 
+// 11、下载二进制文件
+/**
+ * 下载二进制文件
+ * @param {string} url 请求地址
+ * @param {object} params 请求参数
+ */
+export function downLoadBitFile(url, params) {
+  return axios
+    .request({
+      url,
+      method: 'get',
+      params,
+      responseType: 'blob',
+    })
+    .then((res) => {
+      const { data, headers } = res;
+      const blob = new Blob([data], { type: headers['content-type'] });
+      const fileName = decodeURI(
+        headers['content-disposition'].replace(/\w+; filename="(.*)"/, '$1')
+      );
+      if ('download' in document.createElement('a')) {
+        // 非IE下载
+        const elink = document.createElement('a');
+        elink.download = fileName;
+        elink.style.display = 'none';
+        elink.href = URL.createObjectURL(blob);
+        document.body.appendChild(elink);
+        elink.click();
+        URL.revokeObjectURL(elink.href); // 释放URL 对象
+        document.body.removeChild(elink);
+      } else {
+        // IE10+下载
+        navigator.msSaveBlob(blob, fileName);
+      }
+    })
+    .catch(async (err) => {
+      const text = (await err.response?.data?.text()) || '{}';
+      message.error(JSON.parse(text)?.message);
+    });
+}
