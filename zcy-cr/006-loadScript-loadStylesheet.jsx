@@ -110,3 +110,6 @@ renderUEditor() {
     return Promise.all([loadConfig, loadAll]);
 }
 
+
+
+// 推荐使用：systemjs来处理打包
