@@ -198,3 +198,31 @@ export function downLoadBitFile(url, params) {
       message.error(JSON.parse(text)?.message);
     });
 }
+
+// 12、
+/**
+ * 下载文件流
+ */
+export const downloadFileStream = (stream: Blob, options: DownloadOptions) => {
+  const { type, fileName, isOpenNewPage } = options;
+  const href = URL.createObjectURL(new Blob([stream], { type })); // 创建新的URL表示指定的blob对象
+  const a = document.createElement("a");
+  a.href = href; // 指定下载链接
+  a.download = fileName; // 指定下载文件名
+  a.target = isOpenNewPage ? "_blank" : "_self";
+  a.click();
+  URL.revokeObjectURL(a.href); // 释放URL对象
+};
+
+const res = await exportExamInfo(
+  { userId, examId, courseId },
+  { responseType: "blob" },
+);
+if (res) {
+  const downloadOptions: Parameters<typeof downloadFileStream>[1] = {
+    type: "application/vnd.ms-excel",
+    fileName: `${examId}_${userId}_${userName}`,
+    isOpenNewPage: false,
+  };
+  downloadFileStream(res, downloadOptions);
+}

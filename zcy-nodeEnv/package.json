@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "fbemitter": "^3.0.0"
+  },
+  "devDependencies": {
+    "minimist": "^1.2.8"
   }
 }
