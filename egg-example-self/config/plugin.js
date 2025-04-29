@@ -11,3 +11,9 @@ exports.ua = {
   enable: true,
   path: path.join(__dirname, '../lib/plugin/egg-ua'),
 };
+
+// 配置插件
+exports.assets = {
+  enable: true,
+  package: 'egg-view-assets',
+};
